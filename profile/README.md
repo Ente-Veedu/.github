@@ -74,7 +74,7 @@ This gives senders **near-instant settlement**, **lower fees**, and **full trans
 | **Backend** | Next.js API Routes, Node.js |
 | **Blockchain** | Stellar Network, Stellar SDK, Horizon API, Soroban |
 | **Database** | Supabase / PostgreSQL (production) |
-| **Deployment** | Vercel |
+| **Deployment** | Vercel / Railway |
 
 ---
 
