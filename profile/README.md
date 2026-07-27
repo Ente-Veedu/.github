@@ -49,77 +49,73 @@ This architecture enables:
 
 ---
 
-# Product Features
+# ✨ Product Features
 
-## User Authentication
-
-- Secure user registration
-- Login
-- Session management
-
-## Wallet
-
-- Stellar wallet creation
-- Wallet balance
-- Transaction history
-
-## Money Transfer
-
-- Send USDC
-- Cross-border remittance
-- Beneficiary management
-
-## Bank Integration
-
-- Deposit funds
-- Withdraw funds
-- Simulated banking infrastructure
-
-## Security
-
-- Secure API authentication
-- Protected wallet operations
-- Transaction validation
-
-## Blockchain
-
-- Stellar Network integration
-- USDC support
-- SEP standards support
+## 🌍 Instant Cross-Border Remittances
+Transfer money from the Gulf to India within seconds using the Stellar blockchain, providing a faster and more affordable alternative to traditional remittance services.
 
 ---
 
-# Technology Stack
-
-## Frontend
-
-- Next.js
-- React
-- TypeScript
-- Tailwind CSS
-
-## Backend
-
-- Next.js API Routes
-- Node.js
-
-## Blockchain
-
-- Stellar Network
-- Stellar SDK
-- Horizon API
-- Soroban
-
-## Database
-
-- SQLite (Development)
-- Supabase/PostgreSQL (Production Ready)
-
-## Deployment
-
-- Vercel
+## 💸 Low Transaction Fees
+Leverages Stellar's efficient blockchain infrastructure to minimize transaction costs, making international transfers economical for users.
 
 ---
+
+## 💵 USDC-Powered Stable Transfers
+Uses **USDC stablecoin** for settlement, ensuring price stability while eliminating the volatility commonly associated with cryptocurrencies.
+
+---
+
+## ⚡ Near Real-Time Settlement
+Transfers are confirmed and settled within seconds, allowing recipients to receive funds almost instantly.
+
+---
+
+## 🏦 Seamless Bank Integration
+Bridges blockchain and traditional banking by enabling users to deposit and withdraw funds through integrated banking services.
+
+---
+
+## 👥 Beneficiary Management
+Users can securely add, manage, and reuse beneficiary accounts for faster repeat transactions.
+
+---
+
+## 📜 Transaction History & Tracking
+Provides complete visibility into transfer history, including transaction status, timestamps, wallet activity, and blockchain confirmations.
+
+---
+
+## 🔒 Secure Wallet Infrastructure
+Implements secure authentication, encrypted communication, protected wallet operations, and transaction validation to safeguard user assets.
+
+---
+
+## 🌐 Stellar Blockchain Integration
+Built on the **Stellar Network**, enabling secure, reliable, and high-speed cross-border financial transactions.
+
+---
+
+## 🔄 Fiat-to-Blockchain Bridge
+Converts fiat currency into USDC for international transfers and seamlessly converts it back into local currency for recipient withdrawals.
+
+---
+
+## 📱 Modern Responsive User Interface
+Developed with **Next.js**, delivering a clean, responsive, and mobile-friendly experience across desktop and mobile devices.
+
+---
+
+## 🧩 Modular & Scalable Architecture
+Designed with independent components—including the Wallet, Anchor Service, and Bank Service—to simplify maintenance, scalability, and future feature expansion.
+
+---
+
+## 🚀 Cloud Deployment
+Hosted on **Vercel** with continuous deployment support, ensuring high availability, scalability, and reliable performance.
+
+---
+
 
 # System Architecture
 
