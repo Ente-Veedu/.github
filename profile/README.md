@@ -346,36 +346,16 @@ BANK_API_KEY=your-bank-api-key
 CRON_SECRET=your-cron-secret
 ```
 
----
 
-## 📁 Project Structure
-
-```
-stellar-pay (Ente Veedu)/
-├── src/
-│   ├── app/                # Pages & BFF API Routes
-│   │   ├── api/            # API Endpoints (faucet, register, remittance, resolve)
-│   │   └── layout.tsx
-│   ├── components/         # SendMoneyModal, Onboarding, BalanceCard, etc.
-│   ├── context/            # WalletContext.tsx (Web Crypto & SDK core state)
-│   ├── hooks/              # custom React hooks (useFreighter.ts)
-│   └── lib/                # Adapters & Services
-│       ├── services/       # bankService, exchangeRateService, remittanceService
-│       ├── crypto.ts       # Browser PBKDF2/AES-GCM encryption
-│       ├── stellar.ts      # Horizon client instances & balance query logic
-│       └── wallet.ts       # Local storage wallet helpers
-```
-
----
 
 ## 🎬 Product Demo
 
 |                      |                                           |
 | -------------------- | ----------------------------------------- |
-| **Live Application** | `https://ente-veedu.vercel.app`           |
-| **Demo Video**       | `https://youtu.be/ente-veedu-walkthrough` |
-
----
+| **Ente Veedu App** | `https://ente-veedu-wallet.vercel.app`           |
+| **Demo Video**       | `https://drive.google.com/file/d/1ASU6uNQEQxiE_WRLQJtBgLkldCJqutUO/view?usp=sharing` |
+| **Product Video** | `https://drive.google.com/file/d/1MYEmUwcOsUBF0uPwykpt3aBnYEjVpu1G/view?usp=sharing`          |
+--- 
 
 ## 🗺 Roadmap
 
