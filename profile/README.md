@@ -1,141 +1,353 @@
-# 🌍 Ente Veedu
+# 🏡 Ente Veedu Wallet
 
-> **A Stellar-powered cross-border remittance platform enabling fast, secure, and affordable international money transfers directly to Indian bank accounts.**
+> **Fast, secure, and affordable cross-border remittance from the Gulf to India using the Stellar blockchain.**
 
 ---
 
-## Overview
+# Product Description
 
-**Ente Veedu** is a blockchain-based cross-border remittance platform designed to simplify international money transfers for migrant workers and their families. By leveraging the **Stellar blockchain**, the platform enables near real-time settlement with lower transaction costs while integrating with India's banking infrastructure through **UPI**.
+Ente Veedu Wallet is a blockchain-powered remittance platform that enables users in Gulf countries to send money to beneficiaries in India quickly and securely. The platform leverages the Stellar network and USDC to facilitate low-cost international transfers while integrating with traditional banking infrastructure through a custom Anchor implementation.
 
-The platform combines blockchain technology with traditional financial systems using **Stellar Anchor services**, allowing users to send money internationally without requiring recipients to understand or interact with cryptocurrencies.
+The solution abstracts blockchain complexity from end users, providing a familiar digital payment experience while benefiting from Stellar's fast settlement and minimal transaction costs.
 
 ---
 
 # Problem Statement
 
-Traditional cross-border remittance systems suffer from several limitations:
+Millions of expatriates regularly send money to their families. Existing remittance systems suffer from:
 
-- High transaction fees due to multiple financial intermediaries.
-- Slow settlement times that may take hours or even days.
-- Limited transparency regarding transaction status and exchange rates.
-- Complex user experience for international transfers.
-- Heavy dependence on centralized financial institutions.
+- High transaction fees
+- Slow settlement times
+- Poor exchange transparency
+- Multiple intermediaries
+- Limited accessibility
 
-These challenges particularly affect migrant workers who regularly send money to their families and require a faster, more affordable, and reliable solution.
+Traditional international transfers can take hours or days and often involve significant service charges.
 
 ---
 
 # Solution
 
-Ente Veedu addresses these challenges by utilizing the **Stellar blockchain** as the settlement layer for international transfers.
+Ente Veedu Wallet bridges traditional banking and blockchain.
 
-The platform converts fiat currency into digital assets through a **Stellar Anchor**, transfers value securely across the Stellar network, and converts the assets back into local currency before depositing the funds directly into the recipient's bank account via **UPI**.
+Instead of routing money through multiple intermediaries, the platform uses Stellar as the settlement layer.
 
-This architecture significantly reduces settlement time, minimizes intermediary costs, and provides transparent transaction tracking while preserving a familiar banking experience for end users.
+Workflow:
+
+1. Sender initiates a remittance.
+2. Funds are tokenized into USDC.
+3. Transfer occurs on the Stellar blockchain.
+4. The Anchor converts digital assets into local currency.
+5. The recipient receives money directly into their bank account.
+
+This architecture enables:
+
+- Near-instant settlement
+- Lower fees
+- Secure blockchain transactions
+- Transparent transfer tracking
 
 ---
 
-# Key Features
+# Product Features
 
-- 🌍 **Cross-Border Money Transfers**
-  - Send money internationally using the Stellar blockchain.
+## User Authentication
 
-- ⚡ **Near Real-Time Settlement**
-  - Faster transaction processing compared to conventional remittance services.
+- Secure user registration
+- Login
+- Session management
 
-- 💸 **Low Transaction Costs**
-  - Reduced fees through blockchain-based settlement.
+## Wallet
 
-- 🏦 **UPI Bank Integration**
-  - Direct payout to recipients' Indian bank accounts.
+- Stellar wallet creation
+- Wallet balance
+- Transaction history
 
-- 🔗 **Stellar Anchor Integration**
-  - Seamless fiat-to-digital asset and digital asset-to-fiat conversion.
+## Money Transfer
 
-- 🔐 **Secure User Authentication**
-  - Protected user accounts and secure transaction workflows.
+- Send USDC
+- Cross-border remittance
+- Beneficiary management
 
-- 📊 **Transaction Tracking**
-  - Monitor transfer status throughout the remittance process.
+## Bank Integration
 
-- 📱 **Modern Web Interface**
-  - Responsive application for initiating and managing transfers.
+- Deposit funds
+- Withdraw funds
+- Simulated banking infrastructure
 
-- 🧩 **Modular Microservice Architecture**
-  - Independent services for wallet management, banking integration, and Anchor operations.
+## Security
 
-- 📈 **Scalable Design**
-  - Architecture designed to support expansion to additional countries and payment networks.
+- Secure API authentication
+- Protected wallet operations
+- Transaction validation
+
+## Blockchain
+
+- Stellar Network integration
+- USDC support
+- SEP standards support
 
 ---
 
 # Technology Stack
 
-| Layer          | Technologies                   |
-| -------------- | ------------------------------ |
-| Frontend       | Next.js, React, TypeScript     |
-| Backend        | Node.js, Express               |
-| Blockchain     | Stellar Network                |
-| Wallet         | Stellar SDK                    |
-| Database       | SQLite / PostgreSQL            |
-| Authentication | JWT                            |
-| Banking        | UPI (Bank Integration)         |
-| APIs           | Stellar Anchor (SEP Protocols) |
+## Frontend
+
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+
+## Backend
+
+- Next.js API Routes
+- Node.js
+
+## Blockchain
+
+- Stellar Network
+- Stellar SDK
+- Horizon API
+- Soroban
+
+## Database
+
+- SQLite (Development)
+- Supabase/PostgreSQL (Production Ready)
+
+## Deployment
+
+- Vercel
 
 ---
 
-# Architecture
+# System Architecture
 
-```text
-                 Sender
-                    │
-                    ▼
-        Ente Veedu Web Application
-                    │
-                    ▼
-          Stellar Anchor Service
-                    │
-                    ▼
-             Stellar Blockchain
-                    │
-                    ▼
-        Receiving Anchor Service
-                    │
-                    ▼
-            UPI / Indian Bank
-                    │
-                    ▼
-                Recipient
+```
+                    +----------------------+
+                    |   Sender (Gulf)      |
+                    +----------+-----------+
+                               |
+                               |
+                    Ente Veedu Wallet
+                               |
+                               |
+                     Stellar Blockchain
+                               |
+                     Anchor Service
+                               |
+                     Banking Service
+                               |
+                    Recipient Bank Account
+```
+
+---
+
+# Architectural Diagrams
+
+## Overall Architecture
+
+> TODO: Add Architecture Diagram
+
+```
+docs/architecture/system-architecture.png
+```
+
+---
+
+## Component Diagram
+
+> TODO: Add UML Component Diagram
+
+```
+docs/architecture/component-diagram.png
+```
+
+---
+
+## Sequence Diagram
+
+> TODO: Add UML Sequence Diagram
+
+```
+docs/architecture/sequence-diagram.png
+```
+
+---
+
+## Deployment Diagram
+
+> TODO: Add Deployment Diagram
+
+```
+docs/architecture/deployment-diagram.png
+```
+
+---
+
+# Smart Contract Details
+
+## Network
+
+**Stellar Mainnet**
+
+## Contract ID
+
+```
+TODO
+```
+
+## Explorer
+
+```
+https://stellar.expert/
+```
+
+## Screenshot
+
+> TODO
+
+```
+docs/contracts/mainnet-contract.png
+```
+
+---
+
+# Product Demo
+
+## Live Application
+
+```
+https://YOUR-VERCEL-LINK.vercel.app
+```
+
+## Demo Video
+
+```
+https://youtu.be/YOUR_VIDEO
 ```
 
 ---
 
 # Repository Structure
 
-```text
-Ente-Veedu
-├── ente-veedu-wallet          # Frontend application
-├── anchor-service             # Stellar Anchor implementation
-├── anchor-platform            # Anchor platform services
-├── bank-app                   # Banking / UPI integration
-└── docs                       # Project documentation
+```
+src/
+public/
+components/
+lib/
+hooks/
+app/
+styles/
+docs/
 ```
 
 ---
 
-# Vision
+# Installation
 
-To make international remittances **faster, more affordable, and universally accessible** by combining the efficiency of blockchain technology with existing banking infrastructure.
+## Clone
+
+```bash
+git clone https://github.com/Ente-Veedu/Ente_Veedu_Wallet.git
+```
+
+## Install
+
+```bash
+npm install
+```
+
+## Environment
+
+Create:
+
+```
+.env.local
+```
+
+Example
+
+```env
+NEXT_PUBLIC_STELLAR_NETWORK=testnet
+NEXT_PUBLIC_HORIZON_URL=https://horizon-testnet.stellar.org
+
+DATABASE_URL=...
+
+SECRET_KEY=...
+```
+
+---
+
+## Run
+
+```bash
+npm run dev
+```
+
+Visit
+
+```
+http://localhost:3000
+```
+
+---
+
+# Product Setup Guide
+
+## Step 1
+
+Clone repository.
+
+## Step 2
+
+Install dependencies.
+
+## Step 3
+
+Configure environment variables.
+
+## Step 4
+
+Start development server.
+
+## Step 5
+
+Connect Anchor service.
+
+## Step 6
+
+Begin sending and receiving transactions.
+
+---
+
+# Future Vision
+
+The long-term vision for Ente Veedu is to become a global cross-border financial infrastructure built on Stellar.
+
+Future enhancements include:
+
+- Production banking integrations
+- UPI integration
+- MoneyGram Access integration
+- Multi-currency support
+- Real-time exchange rates
+- Mobile applications
+- QR payments
+- Merchant payments
+- Non-custodial wallet support
+- AI-powered fraud detection
+- Global remittance corridors beyond India
 
 ---
 
 # Contributors
 
-Developed as part of the **Ente Veedu** project.
+- Robert Reji
+- Team Ente Veedu
 
 ---
 
 # License
 
-This project is released under the **MIT License**.
+This project is licensed under the MIT License.
