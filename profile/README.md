@@ -259,6 +259,18 @@ The Ente Veedu username registry smart contract is deployed on the Stellar Mainn
 
 ---
 
+-----
+ ## 🎬 Product Demo
+
+- 📽️ **Product Video:** [Watch Product Video](https://drive.google.com/file/d/1MYEmUwcOsUBF0uPwykpt3aBnYEjVpu1G/view?usp=sharing)
+- 🎥 **Demo Video:** [Watch Demo](https://drive.google.com/file/d/1ASU6uNQEQxiE_WRLQJtBgLkldCJqutUO/view?usp=sharing)
+
+
+- 🌐 **Ente Veedu  app:** [Ente Veedu Wallet](https://ente-veedu-wallet.vercel.app)
+- 🏦 **Bank Simulator:** [Ente Veedu Bank](https://ente-veedu-bank.vercel.app/)
+
+-----
+
 ## 🚀 Getting Started
 
 Ente Veedu relies on a multi-service structure to orchestrate client wallets, anchor platforms, and local banking simulations.
@@ -320,62 +332,39 @@ npm run dev
 Create a `.env.local` inside the `stellar-pay` (Ente Veedu) directory:
 
 ```env
-# Stellar network config
-NEXT_PUBLIC_STELLAR_NETWORK=testnet
-NEXT_PUBLIC_HORIZON_URL=https://horizon-testnet.stellar.org
-NEXT_PUBLIC_RPC_URL=https://soroban-testnet.stellar.org
-NEXT_PUBLIC_FRIENDBOT_URL=https://friendbot.stellar.org
+# Stellar Network
+NEXT_PUBLIC_STELLAR_NETWORK=<network>
+NEXT_PUBLIC_HORIZON_URL=<horizon_url>
+NEXT_PUBLIC_RPC_URL=<rpc_url>
 
-# USDC Asset Configuration
-NEXT_PUBLIC_USDC_ISSUER=GAJ553PWUPQDOJBP33JKEHXJXCGT5QTU7U245Y243MMQUA4QBQIJ55ND
+# Smart Contracts
+NEXT_PUBLIC_REGISTRY_CONTRACT_ID=<contract_id>
 
-# Sponsor / Registry Contract ID
-NEXT_PUBLIC_REGISTRY_CONTRACT_ID=CDY...
-SPONSOR_SECRET_KEY=S...
+# Database
+NEXT_PUBLIC_SUPABASE_URL=<supabase_url>
+NEXT_PUBLIC_SUPABASE_ANON_KEY=<anon_key>
 
-# Database Configuration (Supabase)
-NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJ...
-SUPABASE_SERVICE_ROLE_KEY=ey...
+# Bank Service
+BANK_URL=<bank_service_url>
 
-# Bank Simulator Connection
-BANK_URL=http://localhost:3001
-BANK_API_KEY=your-bank-api-key
-
-# Cron Secret for Indexer Authorization
-CRON_SECRET=your-cron-secret
+# Server Secrets
+SPONSOR_SECRET_KEY=<secret>
+SUPABASE_SERVICE_ROLE_KEY=<service_role_key>
+BANK_API_KEY=<api_key>
+CRON_SECRET=<cron_secret>
 ```
 
 
 
-## 🎬 Product Demo
-
-|                      |                                           |
-| -------------------- | ----------------------------------------- |
-| **Ente Veedu App** | `https://ente-veedu-wallet.vercel.app`           |
-| **Demo Video**       | `https://drive.google.com/file/d/1ASU6uNQEQxiE_WRLQJtBgLkldCJqutUO/view?usp=sharing` |
-| **Product Video** | `https://drive.google.com/file/d/1MYEmUwcOsUBF0uPwykpt3aBnYEjVpu1G/view?usp=sharing`          |
---- 
-
 ## 🗺 Roadmap
 
-### Completed Features
+## 🚀 Future Vision
 
-- [x] Client-side encrypted non-custodial wallet generation (AES-GCM / PBKDF2).
-- [x] Live exchange rates with automatic 30s locked quote refreshes.
-- [x] Integrated real-time UPI ID validation against the bank simulator.
-- [x] On-chain registry indexing daemon to query custom @usernames on Soroban.
-- [x] Automatic payment-watcher daemon for out-of-sync / offline transactions.
-
-### Future Work
-
-- [ ] Direct MoneyGram Access endpoints for local cash pick-up.
-- [ ] Multi-currency support (AED, SAR, QAR to INR).
-- [ ] Non-custodial freighter wallet hardware link.
-- [ ] Advanced AI-powered transaction risk scoring.
-
----
-
+- [ ] Multi-currency support (AED, SAR, QAR, USD, EUR, etc.).
+- [ ] Cross-border QR payments, allowing users to scan merchant QR codes worldwide. Payments will be routed through Stellar and settled by the destination country's Anchor directly into the merchant's local bank account.
+- [ ] Digital identity (KYC) integration for seamless onboarding and regulatory compliance.
+- [ ] Native Android and iOS applications with biometric authentication.
+- [ ] Expansion into a global payment platform for remittances, merchant payments, and everyday cross-border commerce.
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome. Feel free to open an issue or submit a pull request.
@@ -384,7 +373,3 @@ Contributions, issues, and feature requests are welcome. Feel free to open an is
 
 - **Robert Reji**
 - Team Ente Veedu
-
-## 📄 License
-
-This project is licensed under the [MIT License](LICENSE).
