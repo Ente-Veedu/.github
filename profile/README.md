@@ -316,4 +316,4 @@ Contributions, issues, and feature requests are welcome. Feel free to open an is
 ## 👥 Contributors
 
 - **Robert Reji**
-- Team Ente Veedu
+- Team Ente Veedu (gecw)
