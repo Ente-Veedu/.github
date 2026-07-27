@@ -300,7 +300,7 @@ Ente Veedu is built as a collection of services that work together to provide se
 
 > **Note:** Each repository contains its own installation guide, environment configuration, and run instructions.
 
-## 🗺 Roadmap
+
 
 ## 🚀 Future Vision
 
