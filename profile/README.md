@@ -273,7 +273,7 @@ The Ente Veedu username registry smart contract is deployed on the Stellar Mainn
 
 ## 🚀 Getting Started
 
-Ente Veedu consists of multiple services that work together to provide end-to-end cross-border remittances.
+Ente Veedu is built as a collection of services that work together to provide seamless cross-border remittances on the Stellar network.
 
 ### Prerequisites
 
@@ -281,23 +281,25 @@ Ente Veedu consists of multiple services that work together to provide end-to-en
 - npm
 - A configured Supabase project
 
-### Services
+### Repositories
 
 | Repository | Purpose |
 |------------|---------|
-| **Ente Veedu Wallet** | User-facing Next.js application |
-| **Anchor Service** | Stellar Anchor integration and transaction processing |
-| **Ente Veedu Bank** | Simulated banking and payout service |
+| **Ente Veedu Wallet** | Next.js application for users to send and receive remittances. |
+| **Anchor Service** | Processes Stellar transactions, monitors deposits, and coordinates payouts. |
+| **Anchor Platform** | Core Stellar Anchor implementation providing SEP APIs and blockchain integration. |
+| **Ente Veedu Bank** | Simulated banking service for account management and local currency payouts. |
 
 ### Setup
 
-1. Clone all required repositories.
+1. Clone all repositories.
 2. Follow the setup instructions in each repository's `README.md`.
 3. Configure the required environment variables.
-4. Start each service.
-5. Open the wallet application and begin testing.
+4. Start all services.
+5. Open the **Ente Veedu Wallet** to begin testing.
 
-> **Note:** Each repository contains its own detailed installation guide, environment configuration, and run instructions.
+> **Note:** Each repository contains its own installation guide, environment configuration, and run instructions.
+
 ## 🗺 Roadmap
 
 ## 🚀 Future Vision
