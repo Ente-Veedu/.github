@@ -81,101 +81,39 @@ This gives senders **near-instant settlement**, **lower fees**, and **full trans
 ## 🏗 System Architecture
 
 ```mermaid
-flowchart TB
+flowchart TD
     %% Nodes and Styles
-    classDef client fill:#dcfce7,stroke:#166534,stroke-width:1px,color:#14532d;
-    classDef api fill:#dbeafe,stroke:#1e40af,stroke-width:1px,color:#1e3a8a;
-    classDef db fill:#fef3c7,stroke:#92400e,stroke-width:1px,color:#78350f;
-    classDef chain fill:#f3e8ff,stroke:#6b21a8,stroke-width:1px,color:#581c87;
-    classDef anchor fill:#fee2e2,stroke:#991b1b,stroke-width:1px,color:#7f1d1d;
-    classDef bank fill:#e0f2fe,stroke:#075985,stroke-width:1px,color:#0c4a6e;
+    classDef client fill:#dcfce7,stroke:#166534,stroke-width:1.5px,color:#14532d;
+    classDef api fill:#dbeafe,stroke:#1e40af,stroke-width:1.5px,color:#1e3a8a;
+    classDef db fill:#fef3c7,stroke:#92400e,stroke-width:1.5px,color:#78350f;
+    classDef chain fill:#f3e8ff,stroke:#6b21a8,stroke-width:1.5px,color:#581c87;
+    classDef anchor fill:#fee2e2,stroke:#991b1b,stroke-width:1.5px,color:#7f1d1d;
+    classDef bank fill:#e0f2fe,stroke:#075985,stroke-width:1.5px,color:#0c4a6e;
 
-    subgraph Client ["Client Layer (Next.js Web App)"]
-        UI["SendMoneyModal & Pages"]:::client
-        WC["WalletContext.tsx"]:::client
-        Crypto["crypto.ts (Local Encrypt/Decrypt)"]:::client
-        SDK["stellar-sdk (Local Sign & Build)"]:::client
-    end
+    Client["📱 Ente Veedu (Client App)<br/>(Local Wallet, Web Crypto & Local Signing)"]:::client
+    BFF["⚙️ Ente Veedu (Next.js BFF)<br/>(Remittance logic, username cache, cron indexers)"]:::api
+    DB[("🗄️ Supabase DB (PostgreSQL)<br/>(Transaction logs, contacts & encrypted keys)")]:::db
+    Stellar["⭐ Stellar Network<br/>(Horizon API, USDC asset & Soroban username registry)"]:::chain
+    Anchor["🏦 Ente Veedu-anchor-service (SEP Adapter)<br/>(Stellar Anchor Platform + Observer & Watcher daemons)"]:::anchor
+    BankSim["🏛️ Ente Veedu-bank(Bank Simulator)<br/>(Instant UPI ID verification & bank payouts)"]:::bank
 
-    subgraph BFF ["Next.js Backend (BFF)"]
-        ConfigAPI["/api/config"]:::api
-        FaucetAPI["/api/faucet"]:::api
-        RegAPI["/api/register/*"]:::api
-        WalletAPI["/api/wallet/*"]:::api
-        RemitAPI["/api/remittance/initiate"]:::api
-        ConfirmAPI["/api/remittance/confirm"]:::api
-        IndexerCron["/api/cron/indexer"]:::api
-    end
-
-    subgraph DB ["Database Layer (Supabase)"]
-        RemitTxTable[("remittance_transactions")]:::db
-        UsernamesTable[("usernames_cache")]:::db
-        BackupTable[("wallet_backups")]:::db
-    end
-
-    subgraph Chain ["Blockchain Layer (Stellar Testnet)"]
-        Horizon["Horizon API (Classic Assets)"]:::chain
-        SorobanRPC["Soroban RPC (Smart Contracts)"]:::chain
-        RegistryContract["Soroban Registry Contract"]:::chain
-    end
-
-    subgraph Anchor ["Anchor Integration"]
-        AP["Stellar Anchor Platform (SEP-24)"]:::anchor
-        AS["Anchor Service (Adapter)"]:::anchor
-        WO["Withdraw Observer (Daemon)"]:::anchor
-        PW["Payment Watcher (Daemon)"]:::anchor
-    end
-
-    subgraph Bank ["Banking Rails"]
-        BankSim["Bank Simulator API"]:::bank
-        BankDB[("Bank Accounts DB")]:::bank
-    end
-
-    %% Client Interactions
-    UI --> WC
-    WC --> Crypto
-    WC --> SDK
+    %% Client Flows
+    Client -->|"1. Setup, Register & Resolve User"| BFF
+    Client -->|"3. Submit USDC Payment with reference_id"| Stellar
+    Client -->|"4. Confirm Tx Hash / Trigger Payout"| BFF
     
-    %% Client to BFF API calls
-    UI -->|"1. Initiate Remittance"| RemitAPI
-    UI -->|"4. Confirm Tx Hash"| ConfirmAPI
-    UI -->|"Backup/Fetch Encrypted Key"| WalletAPI
-    UI -->|"Register / Resolve User"| RegAPI
+    %% BFF Backend Flows
+    BFF -->|"2. Validate Recipient / 5. Initiate Payout"| BankSim
+    BFF -->|"Read/Write Records & Cache"| DB
+    BFF -->|"Verify Payment & Query Registry"| Stellar
     
-    %% Client to Blockchain
-    SDK -->|"3. Submit USDC / Trustline"| Horizon
+    %% Anchor & Fallback Observer Flows
+    Anchor -->|"Poll incoming USDC deposits/withdrawals"| Stellar
+    Anchor -->|"6. Payout (Fallback Daemon)"| BankSim
+    Anchor -->|"Update Remittance Status"| DB
     
-    %% BFF Server Operations to DB
-    RemitAPI -->|"Insert Pending Tx"| RemitTxTable
-    ConfirmAPI -->|"Update Status: processing to completed"| RemitTxTable
-    WalletAPI -->|"Store Encrypted Backup"| BackupTable
-    RegAPI -->|"Query Cache"| UsernamesTable
-    IndexerCron -->|"Sync Registered Username"| UsernamesTable
-    
-    %% BFF to Blockchain / Relayers
-    FaucetAPI -->|"Fund Testnet XLM"| Horizon
-    RegAPI -->|"Submit Registry Auth"| SorobanRPC
-    ConfirmAPI -->|"Verify Tx Memo & Hash"| Horizon
-    IndexerCron -->|"2. Sync Registry Events"| SorobanRPC
-    SorobanRPC --> RegistryContract
-    
-    %% BFF to Bank Sim
-    RemitAPI -->|"Validate Recipient UPI"| BankSim
-    ConfirmAPI -->|"5. Instant Bank Payout"| BankSim
-    
-    %% Anchor Service Operations
-    AP -->|"Deposit Webhook"| AS
-    AS -->|"Submit USDC Deposit"| Horizon
-    WO -->|"Poll Transactions"| AP
-    WO -->|"Execute Withdrawal Payout"| BankSim
-    PW -->|"Poll Incoming Payments"| Horizon
-    PW -->|"Lookup Reference ID"| RemitTxTable
-    PW -->|"6. Payout (Fallback Daemon)"| BankSim
-    PW -->|"Update Remittance Status"| RemitTxTable
-    
-    %% Bank Simulator
-    BankSim --> BankDB
-    BankDB --> Recipient(["Recipient Bank Account / UPI"]):::bank
+    %% Final Settlement
+    BankSim --> Recipient(["👨 Recipient Bank Account (INR)"]):::bank
 ```
 
 ### Transfer Sequence
