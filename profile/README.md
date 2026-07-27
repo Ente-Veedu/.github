@@ -273,89 +273,31 @@ The Ente Veedu username registry smart contract is deployed on the Stellar Mainn
 
 ## 🚀 Getting Started
 
-Ente Veedu relies on a multi-service structure to orchestrate client wallets, anchor platforms, and local banking simulations.
+Ente Veedu consists of multiple services that work together to provide end-to-end cross-border remittances.
 
 ### Prerequisites
 
-- Node.js 18+ & npm
-- A supabase database with the remittance schemas applied
+- Node.js 18+
+- npm
+- A configured Supabase project
 
-### 1. Database Setup
+### Services
 
-Create tables in your database using the migration files:
+| Repository | Purpose |
+|------------|---------|
+| **Ente Veedu Wallet** | User-facing Next.js application |
+| **Anchor Service** | Stellar Anchor integration and transaction processing |
+| **Ente Veedu Bank** | Simulated banking and payout service |
 
-```bash
-# Apply migrations to your Supabase PostgreSQL instance
-# supabase-migration-remittance.sql
-# supabase-migration-update.sql
-```
+### Setup
 
-### 2. Multi-Service Configuration
+1. Clone all required repositories.
+2. Follow the setup instructions in each repository's `README.md`.
+3. Configure the required environment variables.
+4. Start each service.
+5. Open the wallet application and begin testing.
 
-This repository requires three components running in parallel for full testing:
-
-1. **`stellar-pay` (Ente Veedu)** (Next.js client + BFF)
-2. **`anchor-service`** (Anchor observation engine & SEP webhooks)
-3. **`bank-sim` (enteVeedu-Bank)** (Simulated bank accounts, balances, and UPI payouts)
-
-#### Run `bank-sim` (enteVeedu-Bank Simulator API)
-
-```bash
-cd bank-sim
-npm install
-npm run dev
-# Running on http://localhost:3001
-```
-
-#### Run `anchor-service` (Stellar platform daemon)
-
-```bash
-cd anchor-service
-npm install
-npm run dev
-# Running on http://localhost:3003
-```
-
-#### Run `stellar-pay` (Ente Veedu Main application)
-
-```bash
-cd stellar-pay
-npm install
-cp .env.example .env.local
-# Fill in required variables in .env.local
-npm run dev
-# Running on http://localhost:3000
-```
-
-### Environment Variables Template
-
-Create a `.env.local` inside the `stellar-pay` (Ente Veedu) directory:
-
-```env
-# Stellar Network
-NEXT_PUBLIC_STELLAR_NETWORK=<network>
-NEXT_PUBLIC_HORIZON_URL=<horizon_url>
-NEXT_PUBLIC_RPC_URL=<rpc_url>
-
-# Smart Contracts
-NEXT_PUBLIC_REGISTRY_CONTRACT_ID=<contract_id>
-
-# Database
-NEXT_PUBLIC_SUPABASE_URL=<supabase_url>
-NEXT_PUBLIC_SUPABASE_ANON_KEY=<anon_key>
-
-# Bank Service
-BANK_URL=<bank_service_url>
-
-# Server Secrets
-SPONSOR_SECRET_KEY=<secret>
-SUPABASE_SERVICE_ROLE_KEY=<service_role_key>
-BANK_API_KEY=<api_key>
-CRON_SECRET=<cron_secret>
-```
-
-
-
+> **Note:** Each repository contains its own detailed installation guide, environment configuration, and run instructions.
 ## 🗺 Roadmap
 
 ## 🚀 Future Vision
