@@ -174,7 +174,7 @@ flowchart TD
     BankSim -->|Instant UPI Payouts| Recipient(["👨 Recipient VPA / Bank Account"])
 ```
 
-### Remitanance Transfer Sequence
+### Remitanance Transfer Sequence Diagram 
 
 ```mermaid
 sequenceDiagram
@@ -264,7 +264,7 @@ The Ente Veedu username registry smart contract is deployed on the Stellar Mainn
 
 - 📽️ **Product Video:** [Watch Product Video](https://drive.google.com/file/d/1MYEmUwcOsUBF0uPwykpt3aBnYEjVpu1G/view?usp=sharing)
 - 🎥 **Demo Video:** [Watch Demo](https://drive.google.com/file/d/1ASU6uNQEQxiE_WRLQJtBgLkldCJqutUO/view?usp=sharing)
-
+## 🎬 Live  Product 's
 
 - 🌐 **Ente Veedu  app:** [Ente Veedu Wallet](https://ente-veedu-wallet.vercel.app)
 - 🏦 **Bank Simulator:** [Ente Veedu Bank](https://ente-veedu-bank.vercel.app/)
