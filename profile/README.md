@@ -18,7 +18,7 @@
 
 ## 📖 Overview
 
-**Ente Veedu Wallet** ("Ente Veedu" — Malayalam for *"my home"*) is a blockchain-powered remittance platform that lets Gulf-based expatriates send money home to Kerala in seconds, not days. It uses the **Stellar network** and **USDC** as a settlement layer, paired with a custom Anchor implementation that bridges digital assets to real bank accounts — so users get the speed and cost benefits of blockchain rails without ever needing to understand blockchain.
+**Ente Veedu ** ("Ente Veedu" — Malayalam for *"my home"*) is a blockchain-powered remittance platform that lets Gulf-based expatriates send money home to Kerala in seconds, not days. It uses the **Stellar network** and **USDC** as a settlement layer, paired with a custom Anchor implementation that bridges digital assets to real bank accounts — so users get the speed and cost benefits of blockchain rails without ever needing to understand blockchain.
 
 ## 🎯 The Problem
 
@@ -38,16 +38,13 @@ Ente Veedu replaces the intermediary chain with a single settlement layer: Stell
 
 ```mermaid
 flowchart LR
-    A["📱 Sender<br/>(Gulf)"] -->|1. Initiates transfer| B["Ente Veedu Wallet"]
-    B -->|2. Funds tokenized| C["💵 USDC"]
-    C -->|3. Settled on-chain| D["⭐ Stellar Network"]
-    D -->|4. Converted to local currency| E["🏦 Anchor Service"]
-    E -->|5. Payout| F["👨‍👩‍👧 Recipient<br/>Bank Account (India)"]
+    A["📱 Sender"] --> B["🏡 Ente Veedu Wallet"]
+    B --> C["⭐ Stellar Network"]
+    C --> D["🏦 Anchor"]
+    D --> E["👨 Recipient"]
 
-    style D fill:#7D00FF,color:#fff
-    style C fill:#2775CA,color:#fff
+    style C fill:#7D00FF,color:#fff
 ```
-
 This gives senders **near-instant settlement**, **lower fees**, and **full transfer transparency**, while recipients still get money the way they always have — straight into their bank account.
 
 ---
