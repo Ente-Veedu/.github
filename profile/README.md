@@ -73,7 +73,7 @@ This gives senders **near-instant settlement**, **lower fees**, and **full trans
 | **Frontend** | Next.js, React, TypeScript, Tailwind CSS |
 | **Backend** | Next.js API Routes, Node.js |
 | **Blockchain** | Stellar Network, Stellar SDK, Horizon API, Soroban |
-| **Database** | SQLite (development) → Supabase / PostgreSQL (production) |
+| **Database** | Supabase / PostgreSQL (production) |
 | **Deployment** | Vercel |
 
 ---
