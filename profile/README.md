@@ -62,7 +62,7 @@ This gives senders **near-instant settlement**, **lower fees**, and **full trans
 | 🔒 **Secure Wallet Infrastructure** | Authenticated sessions, encrypted communication, validated transactions |
 | 🧩 **Modular Architecture** | Independent Wallet, Anchor, and Bank services for easier scaling |
 | 📱 **Responsive UI** | Built with Next.js + Tailwind for a clean cross-device experience |
-| 🚀 **Cloud-Native Deployment** | Deployed on Vercel with CI/CD |
+| 🚀 **Cloud-Native Deployment** 
 
 ---
 
