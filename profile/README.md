@@ -1,4 +1,4 @@
-# 🏡 Ente Veedu Wallet
+# 🏡 Ente Veedu 
 
 > **Fast, secure, and affordable cross-border remittance from the Gulf to India using the Stellar blockchain.**
 
