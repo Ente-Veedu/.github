@@ -1,6 +1,6 @@
 # 🏡 Ente Veedu 
 
-> **Fast, secure, and affordable cross-border remittance from the Gulf to India using the Stellar blockchain.**
+> **Fast, secure, and affordable cross-border remittance from the Gulf to Kerala using the Stellar blockchain.**
 
 ---
 
