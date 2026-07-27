@@ -223,12 +223,21 @@ sequenceDiagram
 
 | Item               | Value                                                                               |
 | ------------------ | ----------------------------------------------------------------------------------- |
-| Network            | Stellar (Testnet for development, Mainnet for production)                           |
+| Network            | Stellar Mainnet                         |
 | Settlement Asset   | USDC                                                                                |
 | Anchor Standards   | SEP-10 (Web Auth), SEP-24 (Interactive Deposit & Withdrawal)                        |
-| Explorer Link      | [Stellar Expert Explorer](https://stellar.expert/explorer/testnet)                  |
+| Mainnet Contract   | [`CD5RQBTXP6RGNJXJOJEEFAE3INMMAHZ7BTILFOYF2ZA54PRWOIEMSOEP`](https://stellar.expert/explorer/public/contract/CD5RQBTXP6RGNJXJOJEEFAE3INMMAHZ7BTILFOYF2ZA54PRWOIEMSOEP) |
 | Soroban Usage      | On-Chain Username Registry (stores unique @usernames linked to Stellar Public Keys) |
 | Cron Sync Interval | Indexes registration events from Soroban RPC sequence and caches to Supabase        |
+
+### 🚀 Deployed Smart Contract (Mainnet)
+
+The Ente Veedu username registry smart contract is deployed on the Stellar Mainnet:
+
+*   **Contract ID:** `CD5RQBTXP6RGNJXJOJEEFAE3INMMAHZ7BTILFOYF2ZA54PRWOIEMSOEP`
+*   **Stellar Expert Details:** [Mainnet Username Registry Contract Details](https://stellar.expert/explorer/public/contract/CD5RQBTXP6RGNJXJOJEEFAE3INMMAHZ7BTILFOYF2ZA54PRWOIEMSOEP)
+
+![Stellar Expert Mainnet Contract](images/contract.png)
 
 ---
 
